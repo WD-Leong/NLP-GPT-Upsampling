@@ -7,7 +7,7 @@ It should be noted that due to the simplicity of this implementation, the perfor
 Fig. 1: GPT Model Architecture (obtained from [GPT paper](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf))
 
 # Data
-This repository includes codes to process the [Movie Dialogue](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html) dataset, where the preparation of the data follows this [script](https://github.com/suriyadeepan/datasets/blob/master/seq2seq/cornell_movie_corpus/scripts/prepare_data.py) closely, as well as the Reddit Jokes dataset](https://github.com/taivop/joke-dataset).
+This repository includes codes to process the [Movie Dialogue](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html) dataset, where the preparation of the data follows this [script](https://github.com/suriyadeepan/datasets/blob/master/seq2seq/cornell_movie_corpus/scripts/prepare_data.py) closely, as well as the [Reddit Jokes dataset](https://github.com/taivop/joke-dataset).
 
 To prepare the data prior to training the model(s), run
 ```
