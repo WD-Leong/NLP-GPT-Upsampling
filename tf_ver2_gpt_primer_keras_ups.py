@@ -120,13 +120,12 @@ class MultiHeadAttention(tf.keras.layers.Layer):
             q_prime, k_prime, transpose_b=True)
         attn_weights = tf.nn.softmax(
             tf.add(attn_mask, attn_logits))
-        
         attn_outputs = tf.matmul(
             attn_weights, v_prime)
-        attn_outputs = self.wup(self.ups(
-            attn_outputs))[:, :, :seq_length, :]
         
         # Resample back to original length. #
+        attn_outputs = self.wup(self.ups(
+            attn_outputs))[:, :, :seq_length, :]
         attn_outputs = self.wc(
             self.combine_heads(attn_outputs))
         return attn_outputs
@@ -143,7 +142,8 @@ class FFWNetwork(tf.keras.layers.Layer):
         self.ffwd_2 = tf.keras.layers.Dense(d_model)
     
     def call(self, x):
-        return self.ffwd_2(self.ffwd_1(x))
+        # Use Square ReLU activation function. #
+        return self.ffwd_2(tf.square(self.ffwd_1(x)))
 
 # GPT Decoder Layer. #
 class DecoderLayer(tf.keras.layers.Layer):

@@ -6,7 +6,8 @@ import byte_pair_encoding as bpe
 
 import tensorflow as tf
 import tensorflow_addons as tfa
-import tf_ver2_gpt_keras_ups as gpt
+#import tf_ver2_gpt_keras_ups as gpt
+import tf_ver2_gpt_primer_keras_ups as gpt
 
 # Define the weight update step for multiple sub-batches. #
 def sub_batch_train_step(
@@ -58,10 +59,10 @@ def sub_batch_train_step(
     acc_gradients = [tf.math.divide_no_nan(
         acc_grad, batch_size) for acc_grad in acc_gradients]
     
-    clipped_gradients, _ = tf.clip_by_global_norm(
+    clipped_tuple = tf.clip_by_global_norm(
         acc_gradients, grad_clip)
     optimizer.apply_gradients(
-        zip(clipped_gradients, model_params))
+        zip(clipped_tuple[0], model_params))
     return avg_losses
 
 # Model Parameters. #
@@ -76,7 +77,7 @@ num_layers = 3
 seq_length = 50
 
 gradient_clip = 1.00
-maximum_iter  = 20000
+maximum_iter  = 10000
 restore_flag  = True
 save_step     = 500
 warmup_steps  = 5000
@@ -89,8 +90,8 @@ ffwd_size   = 4*hidden_size
 warmup_flag = True
 cooling_step = 500
 
-model_ckpt_dir  = "TF_Models/dialogue_sw_gpt_keras_ups"
-train_loss_file = "train_loss_dialogue_sw_gpt_keras_ups.csv"
+model_ckpt_dir  = "TF_Models/dialogue_sw_gpt_primer_keras_ups"
+train_loss_file = "train_loss_dialogue_sw_gpt_primer_keras_ups.csv"
 
 # Load the data. #
 tmp_pkl_file = "/home/Data/movie_dialogs/"

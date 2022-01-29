@@ -6,7 +6,8 @@ import byte_pair_encoding as bpe
 
 import tensorflow as tf
 import tensorflow_addons as tfa
-import tf_ver2_gpt_keras_ups as gpt
+#import tf_ver2_gpt_keras_ups as gpt
+import tf_ver2_gpt_primer_keras_ups as gpt
 
 # Model Parameters. #
 p_keep = 0.9
@@ -14,13 +15,14 @@ p_drop = 1.0 - p_keep
 
 num_heads  = 4
 num_layers = 3
+kernel_sz  = 5
 seq_length = 50
 kernel_sz  = 5
 hidden_size = 256
 ffwd_size   = 4*hidden_size
 
-model_ckpt_dir  = "TF_Models/dialogue_sw_gpt_keras_ups"
-train_loss_file = "train_loss_dialogue_sw_gpt_keras_ups.csv"
+model_ckpt_dir  = "TF_Models/dialogue_sw_gpt_primer_keras_ups"
+train_loss_file = "train_loss_dialogue_sw_gpt_primer_keras_ups.csv"
 
 # Load the data. #
 tmp_pkl_file = "/home/Data/movie_dialogs/"
