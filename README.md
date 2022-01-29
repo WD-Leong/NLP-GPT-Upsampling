@@ -31,3 +31,6 @@ python train_reddit_jokes_sw_tf_ver2_gpt_keras_upsampled.py
 python infer_reddit_jokes_sw_tf_ver2_gpt_keras_upsampled.py
 ```
 to train the respective models based on the dataset loaded and perform inference of the trained model.
+
+# Using Primer-EZ Architecture
+The [Primer-EZ](https://arxiv.org/abs/2109.08668) architecture is implemented in `tf_ver2_gpt_primer_keras_ups.py` file. The current implementation in `train_movie_dialogue_sw_tf_ver2_gpt_keras_upsampled.py` is configured to use this model.  
